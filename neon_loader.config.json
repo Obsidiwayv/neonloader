@@ -1,0 +1,15 @@
+{
+  "libs": {
+    "windows": [
+      "LZ4/liblz4_static.lib",
+      "advapi32.lib"
+    ]
+  },
+  "includes": [
+    "include",
+    "LZ4/include"
+  ],
+  "assets": [
+    "dir.txt"
+  ]
+}
