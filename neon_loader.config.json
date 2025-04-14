@@ -1,15 +1,13 @@
 {
   "libs": {
-    "windows": [
-      "LZ4/liblz4_static.lib",
-      "advapi32.lib"
+    "windows": [      
+      "bin/katana64.lib"
     ]
   },
   "includes": [
     "include",
-    "LZ4/include"
+    "ui/include"
   ],
-  "assets": [
-    "dir.txt"
-  ]
+  "win32": true,
+  "assets": []
 }

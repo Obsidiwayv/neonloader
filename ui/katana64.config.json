@@ -1,0 +1,17 @@
+{
+    "libs": {
+      "windows": [
+        "opengl32.lib",
+        "ui/libs/glfw3_mt.lib",      
+        "user32.lib",
+        "gdi32.lib",
+        "shell32.lib",
+        "ole32.lib"
+      ]
+    },
+    "includes": [
+      "include"
+    ],
+    "assets": []
+  }
+  

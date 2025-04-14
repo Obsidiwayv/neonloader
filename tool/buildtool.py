@@ -101,6 +101,10 @@ def project(proj_profile: str, build_dir, proj_name, proj_type):
         else:
             source_files.append(source)
 
+    if "win32" in json_config:
+        if json_config["win32"]:
+            ext_commands.append("-Wl,/Subsystem:windows")
+
     commands = [
         f"{llvm_executable} -o {build_dir}/{proj_name}{compiler_file_type}",
         include_paths(),
@@ -108,6 +112,8 @@ def project(proj_profile: str, build_dir, proj_name, proj_type):
         f"{str.join(" ", source_files)} {libs()} -MJ {build_dir}/cmd/co.out{proj_profile.replace("/", ".")}json",
         f"-std=c++17"
     ] + ext_commands
+
+    print(str.join(" ", commands))
 
     subprocess.call(str.join(" ", commands))
 
