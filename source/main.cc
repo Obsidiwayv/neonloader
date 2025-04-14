@@ -1,8 +1,8 @@
 #include "katana.hh"
 
-#pragma comment(lib, "bin/katana64.lib")
-
-KatanaAppCodes RenderLoop() {
+KatanaAppCodes RenderLoop(KatanaWindow kWindow) {
+    BrushFromHex bgColor(0x100d16);
+    kWindow.SetBackgroundColor(bgColor);
     return KatanaAppCodes::START;
 }
 

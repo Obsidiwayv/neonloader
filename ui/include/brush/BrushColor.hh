@@ -3,8 +3,7 @@
 
 #include "GLFW/glfw3.h"
 #include "export.hh"
-
-char ReplaceHex() {}
+#include <string>
 
 class KATANA_EXPORT BrushColor
 {
@@ -16,12 +15,10 @@ public:
     float color3;
 };
 
-class BrushFromHex : BrushColor
+class KATANA_EXPORT BrushFromHex : public BrushColor
 {
-private:
-    char hexCode;
 public:
-    BrushFromHex(char hex);
+    BrushFromHex(int hex);
 };
 
 #endif // BRUSHCOLOR_HH_

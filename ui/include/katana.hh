@@ -11,6 +11,7 @@ enum KatanaAppCodes
     START,
     PAUSE
 };
+
 struct KatanaWindowSizes 
 {
     int width;
@@ -24,7 +25,7 @@ private:
 
 public:
     KatanaWindow(char* appTitle, KatanaWindowSizes sizes);
-    int SetRenderCallback(KatanaAppCodes (*renderLoop)());
+    int SetRenderCallback(KatanaAppCodes (*renderLoop)(KatanaWindow kWindow));
     void SetBackgroundColor(BrushColor brush);
     void Terminate();
 

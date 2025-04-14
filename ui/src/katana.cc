@@ -21,7 +21,7 @@ KatanaWindow::KatanaWindow(char *appTitle, KatanaWindowSizes sizes)
     this->signal = KatanaAppCodes::START;
 }
 
-int KatanaWindow::SetRenderCallback(KatanaAppCodes (*renderLoop)())
+int KatanaWindow::SetRenderCallback(KatanaAppCodes (*renderLoop)(KatanaWindow kWindow))
 {
     glDisable(GL_BLEND);
     while (!glfwWindowShouldClose(window))
@@ -38,7 +38,7 @@ int KatanaWindow::SetRenderCallback(KatanaAppCodes (*renderLoop)())
             /* Swap front and back buffers */
             glfwSwapBuffers(window);
 
-            this->signal = renderLoop();
+            this->signal = renderLoop(*this);
 
             /* Poll for and process events */
             glfwPollEvents();

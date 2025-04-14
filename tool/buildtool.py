@@ -32,7 +32,7 @@ def project(proj_profile: str, build_dir, proj_name, proj_type):
                 windows_libs = []
                 for lib in json_config["libs"]["windows"]:
                     # Will append `-I` to the library
-                    windows_libs.append(f"-I{lib}")
+                    windows_libs.append(f"-l{lib}")
                 if is_windows():
                     return str.join(" ", windows_libs)
         else:
@@ -89,6 +89,9 @@ def project(proj_profile: str, build_dir, proj_name, proj_type):
             #    subprocess.call(f"{llvm_executable} -o {stripped_source_name} -c {source_file} {include_paths()}")
             #    obj_files.append(stripped_source_name)
             #subprocess.call(f"{LLVM_AR_EXECUTABLE} rcs bin/{proj_name}.lib {str.join(" ", obj_files)}")
+    else:
+        if is_windows():
+            ext_commands.append("-Wl,/NOIMPLIB")
 
     source_files = []
     for source in source_files_list:
